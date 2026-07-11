@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "jones homework assignment",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test:headed": "playwright test --headed"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yaniv-simmer/jones-software-automation-exercise.git"
