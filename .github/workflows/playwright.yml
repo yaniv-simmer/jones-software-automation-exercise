@@ -10,10 +10,6 @@ on:
 permissions:
   contents: read
 
-concurrency:
-  group: pages
-  cancel-in-progress: false
-
 jobs:
   test:
     timeout-minutes: 60
@@ -46,6 +42,9 @@ jobs:
   deploy-report:
     needs: test
     if: github.event_name == 'push' && needs.test.result != 'cancelled'
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     permissions:
       pages: write
