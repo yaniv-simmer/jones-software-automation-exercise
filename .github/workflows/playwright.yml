@@ -45,10 +45,7 @@ jobs:
 
   deploy-report:
     needs: test
-    if: >
-      github.event_name == 'push' &&
-      github.ref == 'refs/heads/main' &&
-      needs.test.result != 'cancelled'
+    if: github.event_name == 'push' && needs.test.result != 'cancelled'
     runs-on: ubuntu-latest
     permissions:
       pages: write
